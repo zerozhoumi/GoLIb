@@ -1,0 +1,54 @@
+*{
+	border: 0;
+	padding:0;
+	margin: 0;
+}
+body li{
+	border: 1px #000 solid;
+	height: 12px;
+	margin: 2px 0 ;
+	list-style-type:none;
+	text-align: center;
+	size:12px;
+}
+	/*需要改变方向的书架列*/
+		.mid-left{
+			
+			/* Rotate div */
+		transform:rotate(180deg);
+		-ms-transform:rotate(180deg); /* IE 9 */
+		-webkit-transform:rotate(180deg); /* Safari and Chrome */
+		}
+		
+		.right{		
+			/* Rotate div */
+		transform:rotate(180deg);
+		-ms-transform:rotate(180deg); /* IE 9 */
+		-webkit-transform:rotate(180deg); /* Safari and Chrome */
+				
+		}
+
+		.l-wall{
+			height: 66px;
+			border: 1px #ccc solid;
+		}
+		.l-across{
+			height: 20px;
+
+		}
+			.current{
+				background: #f00;
+			}
+
+		#first-floor{
+			display: none;
+		}
+		#second-floor{
+			display: none;
+		}
+		#three-floor{
+			display:none;
+		}
+		
+		
+	
