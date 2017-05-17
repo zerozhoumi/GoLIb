@@ -1,53 +1,202 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta charset="utf-8">
 <html>
 <head>
-	<title>书架信息</title>
+	<title>文艺库</title>
 </head>
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <style type="text/css">
 *{
 	border: 0;
 	padding:0;
 	margin: 0;
 }
-	.right{
-		border:5px #000 solid;
-		width: 20%;
+body li{
+	border: 1px #000 solid;
+	height: 12px;
+	margin: 5px ;
+	
+	list-style-type:none;
+	text-align: center;
+}
+	.left{
+		
+		
+
 	}
-	.right li{
+	.mid-left{
+		
+		/* Rotate div */
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg); /* IE 9 */
+	-webkit-transform:rotate(180deg); /* Safari and Chrome */
+
+
+	}
+	.mid-right{
+		
 		
 	}
+	.right{
+		
+		/* Rotate div */
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg); /* IE 9 */
+	-webkit-transform:rotate(180deg); /* Safari and Chrome */
+		
+		
+	}
+
+		.center-block {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		}
+
+		
+		
+	
 </style>
 <body>
-<ul>
-<div class="right">
-<li>1</li>
-<li></li>
-<li></li>
-<li></li>
-<li>5</li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li>10</li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li>15</li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li>20</li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li>25</li>
+<div class="container-fluid">
+<div class="row">
+
+<div class="col-xs-3 col-md-3 col-xs-push-9 right">
+	<ul>
+	<li>1</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>5</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>10</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>15</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>20</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>25</li>
+	</ul>
 </div>
+<div class=" col-xs-3 col-md-3 col-xs-push-3 mid-right">
+	<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>30</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>35</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>40</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>45</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>50</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>55</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>60</li>
+	</ul>
+</div>
+<div class=" col-xs-3 col-md-3 col-xs-pull-3 mid-left">
+	<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>65</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>70</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>75</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>80</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>85</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>90</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
 	
-</ul>
+	</ul>
+</div>
+<div class=" col-xs-3 col-md-3 col-xs-pull-9 left">
+	<ul>
+	<li>95</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>100</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>105</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>110</li>
+	
+	</ul>
+</div>
+
+</div>
+
+<div class="center-block">
+<h2>入口</h2>
+</div>
+</div>
+
 </body>
 </html>
