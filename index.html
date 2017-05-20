@@ -5,27 +5,33 @@
 <head>
 	<title>图书馆查书</title>
 </head>
+
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
 </script>
-<script src=test.js></script>
+
+<script src=js/main.js></script>
+
+
+
 <body>
 <div class="container-fluid" >
 
-<div class="head">
+<div id="head">
 <h2>永远相信美好的事即将发生</h2>
 </div>
 
 <div class="row">
 
 <div class="col-xs-4">
-	<select class="form-control">
-	  <option>书名</option>
-	  <option>作者</option>
-	  <option>序号</option>
+	<select class="form-control" id="selectType">
+	  <option value="1">书名</option>
+	  <option value="2">作者</option>
+	  <option value="3">序号</option>
 	</select>
 </div>
 <div class="col-xs-6">
@@ -46,7 +52,7 @@
 <!-- 下面是第一层 -->
 <div class="row">
 
-<div class="col-xs-3 col-md-3 col-xs-push-9 right">
+<div class=" col-xs-3 col-md-1 col-xs-push-9 col-md-push-3 right">
 	<ul>
 	<li>1</li>
 	<li></li>
@@ -75,7 +81,7 @@
 	<li>25</li>
 	</ul>
 </div>
-<div class=" col-xs-3 col-md-3 col-xs-push-3 mid-right">
+<div class=" col-xs-3 col-md-1 col-xs-push-3 col-md-push-1 mid-right">
 	<ul>
 	<li></li>
 	<li></li>
@@ -114,7 +120,7 @@
 	<li>60</li>
 	</ul>
 </div>
-<div class=" col-xs-3 col-md-3 col-xs-pull-3 mid-left">
+<div class=" col-xs-3 col-md-1 col-xs-pull-3 col-md-pull-1 mid-left">
 	<ul>
 	<li></li>
 	<li></li>
@@ -153,7 +159,7 @@
 	
 	</ul>
 </div>
-<div class=" col-xs-3 col-md-3 col-xs-pull-9 left">
+<div class=" col-xs-3 col-md-1 col-xs-pull-9 col-md-pull-3 left">
 	<ul>
 	<li>95</li>
 	<li></li>
@@ -183,7 +189,7 @@
 <div class="container-fluid" id="second-floor">
 <div class="row">
 
-<div class="col-xs-3 col-md-3 col-xs-push-9 right">
+<div class=" col-xs-3 col-md-3 col-xs-push-9 col-md-push-3 right">
 	<ul>
 	<li>1</li>
 	<li></li>
@@ -224,7 +230,7 @@
 	<li></li>
 	</ul>
 </div>
-<div class=" col-xs-3 col-md-3 col-xs-push-3 mid-right">
+<div class=" col-xs-3 col-md-3 col-xs-push-3 col-md-push-1 mid-right">
 	<ul>
 	<li></li>
 	<li></li>
@@ -273,7 +279,7 @@
 	<li></li>
 	</ul>
 </div>
-<div class=" col-xs-3 col-md-3 col-xs-pull-3 mid-left">
+<div class=" col-xs-3 col-md-3 col-xs-pull-3 col-md-pull-1 mid-left">
 	<ul>
 	<li></li>
 	<li></li>
@@ -323,7 +329,7 @@
 	
 	</ul>
 </div>
-<div class=" col-xs-3 col-md-3 col-xs-pull-9 left">
+<div class=" col-xs-3 col-md-3 col-xs-pull-9 col-md-pull-3  left">
 	<ul>
 	<li></li>
 	<li></li>
@@ -363,7 +369,7 @@
 <div class="container-fluid" id="three-floor">
 <div class="row">
 
-<div class="col-xs-3 col-md-3 col-xs-push-9 right">
+<div class=" col-xs-3 col-md-3 col-xs-push-9 col-md-push-3 right">
 	<ul>
 	<li>1</li>
 	<li></li>
@@ -403,7 +409,7 @@
 	<li></li>
 	</ul>
 </div>
-<div class=" col-xs-3 col-md-3 col-xs-push-3 mid-right">
+<div class=" col-xs-3 col-md-3 col-xs-push-3 col-md-push-1 mid-right">
 	<ul>
 	<li></li>
 	<li></li>
@@ -453,7 +459,7 @@
 	
 	</ul>
 </div>
-<div class=" col-xs-3 col-md-3 col-xs-pull-3 mid-left">
+<div class=" col-xs-3 col-md-3 col-xs-pull-3 col-md-pull-1 mid-left">
 	<ul>
 	<li></li>
 	<li></li>
@@ -494,7 +500,7 @@
 	<li>115</li>
 	<li></li>
 	<li></li>
-	<li class="current"></li>
+	<li></li>
 	<li></li>
 	<li>120</li>
 	<li></li>
@@ -504,7 +510,7 @@
 	
 	</ul>
 </div>
-<div class=" col-xs-3 col-md-3 col-xs-pull-9 left">
+<div class=" col-xs-3 col-md-3 col-xs-pull-9 col-md-pull-3 left">
 	<ul>
 
 	<li>125</li>
