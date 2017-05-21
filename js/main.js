@@ -106,9 +106,9 @@
 		var floorName=floorList[floor-1];
 		 $(floorName).css("display","block"); 
 		 //num是一个数组
-		 var toFindLi= $(floorName).find("li")
+		 var toFindLi= $(floorName).find("li");
 		 for(var i=num[0];i<num[1];i++){
-		 	toFindLi.eq(i-1).addClass("current");
+		 	toFindLi.eq(i).addClass("current");
 
 		 }
 		 

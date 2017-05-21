@@ -24,7 +24,7 @@ function caculateBookList(str){
 	}
 
 	endNum+=1;
-	var rangneNum=[endNum-count,endNum]
+	var rangneNum=[endNum-count,endNum];
 	console.log(endNum-count,endNum);
 		//返回一个数组
 	return rangneNum;
