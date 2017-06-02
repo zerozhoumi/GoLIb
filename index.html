@@ -5,556 +5,582 @@
 <head>
 	<title>图书馆查书</title>
 </head>
-
+<script type="text/javascript" src="js/jquery.js"></script>
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<!--提前引入，防止错误-->
 
-<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
-</script>
-
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.js"></script>
 <script src=js/main.js></script>
 
-
-
 <body>
-<div class="container-fluid" >
+<!--注入full-page-->
+<div id="web">
+	<!-- 以下是查询页 -->
+	<div class="section" id="findBookPage">
 
-<div id="head">
-<h2>永远相信美好的事即将发生</h2>
-</div>
+		<div id="headr" >
+		<h2>永远相信
+			<br>
+			美好的事情
+			<br>
+			即将发生</h2>
+		
+		</div>
 
-<div class="row">
+		<div class="container-fluid" >
+			<div class="row">
+		<div class="col-xs-4 col-md-2">
+			<select class="form-control" id="selectType">
+			  <option value="1">书名</option>
+			  <option value="2">作者</option>
+			  <option value="3">ISBN</option>
+			</select>
+		</div>
 
-<div class="col-xs-4">
-	<select class="form-control" id="selectType">
-	  <option value="1">书名</option>
-	  <option value="2">作者</option>
-	  <option value="3">序号</option>
-	</select>
-</div>
-<div class="col-xs-6">
-<input class="form-control" id="input" type="text" placeholder="输入书名" >
-</div>
+		<div class="col-xs-8 col-md-4">
+		<input  class="form-control" id="inputBookName" type="text" placeholder="输入书名" >
+		</div>
+			</div>
+		</div>
 
-<div class="col-xs-2">
-<button type="button" class="btn btn-default" value="查找" id="find">查找</button>
-</div>
+		<button class="center btn btn-default" id="findBtn">查找</button>
 
-</div>
-</div>
+		<h2 class="error">请输入书籍信息</h2>
 
-
-<!-- 书架信息 -->
-<div class="container-fluid" id="first-floor">
-
-<!-- 下面是第一层 -->
-<div class="row">
-
-<div class=" col-xs-3 col-md-1 col-xs-push-9 col-md-push-3 right">
-	<ul>
-	<li>1</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>5</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>10</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>15</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>20</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>25</li>
-	</ul>
-</div>
-<div class=" col-xs-3 col-md-1 col-xs-push-3 col-md-push-1 mid-right">
-	<ul>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>30</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>35</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>40</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>45</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>50</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>55</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>60</li>
-	</ul>
-</div>
-<div class=" col-xs-3 col-md-1 col-xs-pull-3 col-md-pull-1 mid-left">
-	<ul>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>65</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>70</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>75</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>80</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>85</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>90</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	
-	</ul>
-</div>
-<div class=" col-xs-3 col-md-1 col-xs-pull-9 col-md-pull-3 left">
-	<ul>
-	<li>95</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>100</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>105</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>110</li>
-	<div class="l-wall">消防通道</div>
-	</ul>
-</div>
-
-</div>
-<h2>一层入口</h2>
-</div>
+		</div>
 
 
-<!-- 下面是第二层 -->
-<div class="container-fluid" id="second-floor">
-<div class="row">
+		<!--操作引导-->
+	<div class="section" id="infoPage">
 
-<div class=" col-xs-3 col-md-3 col-xs-push-9 col-md-push-3 right">
-	<ul>
-	<li>1</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>5</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>10</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>15</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>20</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>25</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>30</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>35</li>
-	<li></li>
-	<li></li>
-	</ul>
-</div>
-<div class=" col-xs-3 col-md-3 col-xs-push-3 col-md-push-1 mid-right">
-	<ul>
-	<li></li>
-	<li></li>
-	<li>40</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>45</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>50</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>55</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>60</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>65</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>70</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>75</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>80</li>
-	<li></li>
-	<li></li>
-	</ul>
-</div>
-<div class=" col-xs-3 col-md-3 col-xs-pull-3 col-md-pull-1 mid-left">
-	<ul>
-	<li></li>
-	<li></li>
-	<li>85</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>90</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>95</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>100</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>105</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>110</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>115</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>120</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>125</li>
-	<li></li>
-	<li></li>
-	
-	</ul>
-</div>
-<div class=" col-xs-3 col-md-3 col-xs-pull-9 col-md-pull-3  left">
-	<ul>
-	<li></li>
-	<li></li>
-	<li>130</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>135</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>140</li>
-	<li></li>
-	<li></li>
-	<div class="l-wall">消防通道</div>
-	<li></li>
-	<li></li>
-	<li>145</li>
-	<li></li>
-	<li></li>
-	
-	</ul>
-</div>
+		<!--有一个img做为指示信息-->
+		<img src="img/test.png">
+		<!--跳转url-->
+		<p><a href="#">点击标签</a>，并复制如图书籍编号</p>
 
-</div>
+	<!--输入书籍编号-->
+	<div class="container-fluid">
+		<div class="row">
+		<div class="col-xs-8" >
+			<input  class="form-control" id="inputBookCode" type="text" placeholder="输入书籍编码，如：TP311/96" >
+		</div>
+
+			<div class="col-xs-2 col-md-4">
+				<button class="btn btn-default" id="findCodeBtn">查找</button>
+			</div>
+
+		</div>
+	</div>
+			<h2 class="error">请输入书籍信息</h2>
+
+		</div>
 
 
+	<!-- 书架信息 -->
+	<!-- 下面是第一层 -->
+		<div class="section" id="first-floor">
+			<div class="booklist" >
+	<div class="container-fluid" >
+	<div class="row">
+	<div class=" col-xs-3 col-md-1 col-xs-push-9 col-md-push-3 right">
+		<ul>
+		<li>1</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>5</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>10</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>15</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>20</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>25</li>
+		</ul>
+	</div>
+	<div class=" col-xs-3 col-md-1 col-xs-push-3 col-md-push-1 mid-right">
+		<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>30</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>35</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>40</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>45</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>50</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>55</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>60</li>
+		</ul>
+	</div>
+	<div class=" col-xs-3 col-md-1 col-xs-pull-3 col-md-pull-1 mid-left">
+		<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>65</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>70</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>75</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>80</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>85</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>90</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		
+		</ul>
+	</div>
+	<div class=" col-xs-3 col-md-1 col-xs-pull-9 col-md-pull-3 left">
+		<ul>
+		<li>95</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>100</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>105</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>110</li>
+		<div class="l-wall">消防通道</div>
+		</ul>
+	</div>
+			</div>
+		</div>
+				<h3 class="door-in text-center">一层入口</h3>
+			</div>
+		</div>
+	<!-- 下面是第二层 -->
+		<div class="section" id="second-floor">
+			<div class="booklist" >
+	<div class="container-fluid" >
+	<div class="row">
 
-<h2>二层入口</h2>
+	<div class=" col-xs-3 col-md-1 col-xs-push-9 col-md-push-3 right">
+		<ul>
+		<li>1</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>5</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>10</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>15</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>20</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>25</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>30</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>35</li>
+		<li></li>
+		<li></li>
+		</ul>
+	</div>
+	<div class=" col-xs-3 col-md-1 col-xs-push-3 col-md-push-1 mid-right">
+		<ul>
+		<li></li>
+		<li></li>
+		<li>40</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>45</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>50</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>55</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>60</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>65</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>70</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>75</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>80</li>
+		<li></li>
+		<li></li>
+		</ul>
+	</div>
+	<div class=" col-xs-3 col-md-1 col-xs-pull-3 col-md-pull-1 mid-left">
+		<ul>
+		<li></li>
+		<li></li>
+		<li>85</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>90</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>95</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>100</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>105</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>110</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>115</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>120</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>125</li>
+		<li></li>
+		<li></li>
+		
+		</ul>
+	</div>
+	<div class=" col-xs-3 col-md-1 col-xs-pull-9 col-md-pull-3  left">
+		<ul>
+		<li></li>
+		<li></li>
+		<li>130</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>135</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>140</li>
+		<li></li>
+		<li></li>
+		<div class="l-wall">消防通道</div>
+		<li></li>
+		<li></li>
+		<li>145</li>
+		<li></li>
+		<li></li>
+		</ul>
+	</div>
+	</div>
+	</div>
+				<h3 class="door-in text-center">二层入口</h3>
+			</div>
+		</div>
+	<!-- 下面是第三层 -->
+		<div class="section" id="three-floor">
+			<div class="booklist" >
+	<div class="container-fluid" >
+	<div class="row">
 
+	<div class=" col-xs-3 col-md-1 col-xs-push-9 col-md-push-3 right">
+		<ul>
+		<li>1</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>5</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>10</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>15</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>20</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>25</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>30</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>35</li>
+		<li></li>
+		</ul>
+	</div>
+	<div class=" col-xs-3 col-md-1 col-xs-push-3 col-md-push-1 mid-right">
+		<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>40</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>45</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>50</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>55</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<div class="l-across">过道</div>
+		<li></li>
+		<li>60</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>65</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>70</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>75</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>80</li>
+		
+		</ul>
+	</div>
+	<div class=" col-xs-3 col-md-1 col-xs-pull-3 col-md-pull-1 mid-left">
+		<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>85</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>90</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>95</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>100</li>
+		<li></li>
+		<li></li>
+		<div class="l-across">过道</div>
+		<li></li>
+		<li></li>
+		<li>105</li>
+		<li></li>
+		<li></li>
+		
+		<li></li>
+		<li></li>
+		<li>110</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>115</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>120</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		
+		</ul>
+	</div>
+	<div class=" col-xs-3 col-md-1 col-xs-pull-9 col-md-pull-3 left">
+		<ul>
 
-</div>
-
-<!-- 下面是第三层 -->
-<div class="container-fluid" id="three-floor">
-<div class="row">
-
-<div class=" col-xs-3 col-md-3 col-xs-push-9 col-md-push-3 right">
-	<ul>
-	<li>1</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>5</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>10</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>15</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>20</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>25</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>30</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>35</li>
-	<li></li>
-	</ul>
-</div>
-<div class=" col-xs-3 col-md-3 col-xs-push-3 col-md-push-1 mid-right">
-	<ul>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>40</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>45</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>50</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>55</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<div class="l-across">过道</div>
-	<li></li>
-	<li>60</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>65</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>70</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>75</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>80</li>
-	
-	</ul>
-</div>
-<div class=" col-xs-3 col-md-3 col-xs-pull-3 col-md-pull-1 mid-left">
-	<ul>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>85</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>90</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>95</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>100</li>
-	<li></li>
-	<li></li>
-	<div class="l-across">过道</div>
-	<li></li>
-	<li></li>
-	<li>105</li>
-	<li></li>
-	<li></li>
-	
-	<li></li>
-	<li></li>
-	<li>110</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>115</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>120</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	
-	</ul>
-</div>
-<div class=" col-xs-3 col-md-3 col-xs-pull-9 col-md-pull-3 left">
-	<ul>
-
-	<li>125</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>130</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>135</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<div class="l-wall">消防通道</div>
-	<li>140</li>
-	<li></li>
-	<li></li>
-	
-	<li></li>
-	<li></li>
-	<li>145</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li>150</li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	
-	</ul>
-</div>
-
-</div>
-
-
-
-<h2>三层入口</h2>
-
+		<li>125</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>130</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>135</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<div class="l-wall">消防通道</div>
+		<li>140</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>145</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>150</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		</ul>
+	</div>
+	</div>
+	</div>
+				<h3 class="door-in text-center">三层入口</h3>
+			</div>
+	</div>
 
 </div>
 </body>

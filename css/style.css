@@ -1,54 +1,97 @@
-*{
-	border: 0;
-	padding:0;
-	margin: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
-body li{
-	border: 1px #000 solid;
-	height: 12px;
-	margin: 2px 0 ;
-	list-style-type:none;
-	text-align: center;
-	size:12px;
-}
-	/*需要改变方向的书架列*/
-		.mid-left{
-			
-			/* Rotate div */
-		transform:rotate(180deg);
-		-ms-transform:rotate(180deg); /* IE 9 */
-		-webkit-transform:rotate(180deg); /* Safari and Chrome */
-		}
-		
-		.right{		
-			/* Rotate div */
-		transform:rotate(180deg);
-		-ms-transform:rotate(180deg); /* IE 9 */
-		-webkit-transform:rotate(180deg); /* Safari and Chrome */
-				
-		}
+	li {
+	    list-style-type: none;
+	}
+	a {
+	    text-decoration: none;
+	}
+	table {
+	    border-spacing: 0;
+	    border-collapse: collapse;
+	}
 
-		.l-wall{
+/*总的设置*/
+	body {
+    	background-color: #fff;
+	}
+	p {
+	    text-indent: 2em;
+	}
+
+/*输入书名查询页*/
+.cneter{
+	margin: 50px auto;
+}
+
+ .error{
+	color: #f00;
+	display: none;
+}
+ /*复制书籍编号引导页*/
+
+
+/*输入编号查询页*/
+
+/*书架页*/
+	.booklist li{
+		border: 1px #000 solid;
+		height: 1%;
+		margin: 5px 0 ;
+		text-align: center;
+		size:12px;
+	}
+	/*需要改变方向的书架列*/
+		.booklist .mid-left{
+		transform:rotate(180deg);
+		-ms-transform:rotate(180deg); /* IE 9 */
+		-webkit-transform:rotate(180deg); /* Safari and Chrome */
+		}	
+		.booklist .right{
+		transform:rotate(180deg);
+		-ms-transform:rotate(180deg); /* IE 9 */
+		-webkit-transform:rotate(180deg); /* Safari and Chrome */
+		}
+	/*一些标记，如桌子，消防通道，过道*/
+		.booklist .l-wall{
 			height: 66px;
 			border: 1px #ccc solid;
 		}
-		.l-across{
+		.booklist .l-across{
 			height: 20px;
+		}
+	.door-in{
 
-		}
-			.current{
-				background: #f00;
-			}
+	}
+		/*为后期动画做准备*/
+/*error信息是隐藏的*/
 
-		#first-floor{
-			display: none;
-		}
-		#second-floor{
-			display: none;
-		}
-		#three-floor{
-			display:none;
-		}
+
+/*用来先隐藏掉书架布局*/
+
+#first-floor{
+display: none;
+}
+#second-floor{
+display: none;
+}
+#three-floor{
+display:none;
+}
+
+/*被选中的书架，考虑不同的颜色表示，面向哪*/
+.booklist .current{
+	background: #f00;
+	height: 20px;
+}
+.booklist .current-door{
+
+}
+.booklist .current-wall{
+
+}
 		
 		
 	
