@@ -57,8 +57,7 @@
 
 
 $(function () {
-    //装备fullpage;
-    	$("#web").fullpage({});
+    
         //下拉选框是否改变了
 
 
@@ -80,8 +79,8 @@ $(function () {
 		$("#findCodeBtn").click(function () {
 			var codeName=getInputBookCode();
 			if (codeName){
-				var numArr=caculateBookList(codeName);
-				showBook(numArr);
+				// var numArr=caculateBookList(codeName);
+				showBook([1,3]);
                 //	跳转到该页
 
 			}else {

@@ -5,7 +5,7 @@
 <head>
 	<title>图书馆查书</title>
 </head>
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -16,21 +16,27 @@
 <script src=js/main.js></script>
 
 <body>
-<!--注入full-page-->
-<div id="web">
+
 	<!-- 以下是查询页 -->
 	<div class="section" id="findBookPage">
 
-		<div id="headr" >
-		<h2>永远相信
+		<div id="header">
+		<div class="log">
+		<h1>
+			永远相信
 			<br>
 			美好的事情
 			<br>
-			即将发生</h2>
-		
+			即将发生
+		</h1>
+		<h5>Always believe that something wonderful
+		<br>
+		is about to happen
+		</h5>
+		</div>
 		</div>
 
-		<div class="container-fluid" >
+		<div class="container-fluid input-box" >
 			<div class="row">
 		<div class="col-xs-4 col-md-2">
 			<select class="form-control" id="selectType">
@@ -41,7 +47,7 @@
 		</div>
 
 		<div class="col-xs-8 col-md-4">
-		<input  class="form-control" id="inputBookName" type="text" placeholder="输入书名" >
+		<input  class="form-control" id="inputBookName" type="text" placeholder="输入书籍信息" >
 		</div>
 			</div>
 		</div>
@@ -54,7 +60,7 @@
 
 
 		<!--操作引导-->
-	<div class="section" id="infoPage">
+	<div  id="infoPage">
 
 		<!--有一个img做为指示信息-->
 		<img src="img/test.png">
@@ -81,7 +87,7 @@
 
 	<!-- 书架信息 -->
 	<!-- 下面是第一层 -->
-		<div class="section" id="first-floor">
+		<div  id="first-floor">
 			<div class="booklist" >
 	<div class="container-fluid" >
 	<div class="row">
@@ -218,7 +224,7 @@
 			</div>
 		</div>
 	<!-- 下面是第二层 -->
-		<div class="section" id="second-floor">
+		<div  id="second-floor">
 			<div class="booklist" >
 	<div class="container-fluid" >
 	<div class="row">
@@ -394,7 +400,7 @@
 			</div>
 		</div>
 	<!-- 下面是第三层 -->
-		<div class="section" id="three-floor">
+		<div  id="three-floor">
 			<div class="booklist" >
 	<div class="container-fluid" >
 	<div class="row">

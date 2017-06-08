@@ -22,10 +22,24 @@
 	}
 
 /*输入书名查询页*/
-.cneter{
-	margin: 50px auto;
+#header{
+	background-color: #db4539;
+	padding-bottom: 3%;
 }
-
+.log{
+	position: relative;
+	padding-top: 0.09%;
+	padding-left: 0.09%;
+	color: #fff;
+	
+}
+.input-box{
+	padding-top: 5%; 
+}
+.center{
+	position: relative;
+	padding-left: 30%;
+}
  .error{
 	color: #f00;
 	display: none;
