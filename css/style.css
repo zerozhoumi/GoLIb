@@ -23,29 +23,41 @@
 
 /*输入书名查询页*/
 #header{
-	background-color: #db4539;
+	background-color: #337ab7;
 	padding-bottom: 3%;
 }
 .log{
 	position: relative;
-	padding-top: 0.09%;
-	padding-left: 0.09%;
+	padding-top: 3%;
 	color: #fff;
 	
+}
+.log strong{
+
+	padding-left: 9%;
 }
 .input-box{
 	padding-top: 5%; 
 }
 .center{
 	position: relative;
-	padding-left: 30%;
+	margin-top: 5%;
 }
- .error{
-	color: #f00;
-	display: none;
-}
+ /*.error{*/
+	/*color: #f00;*/
+	/*display: none;*/
+/*}*/
  /*复制书籍编号引导页*/
-
+.book-show a{
+	float: right;
+}
+.book-show h3{
+	float: left;
+	font-size: 14px;
+}
+.book-show span{
+	float: right;
+}
 
 /*输入编号查询页*/
 
@@ -85,15 +97,15 @@
 
 /*用来先隐藏掉书架布局*/
 
-#first-floor{
-display: none;
-}
-#second-floor{
-display: none;
-}
-#three-floor{
-display:none;
-}
+/*#first-floor{*/
+/*display: none;*/
+/*}*/
+/*#second-floor{*/
+/*display: none;*/
+/*}*/
+/*#three-floor{*/
+/*display:none;*/
+/*}*/
 
 /*被选中的书架，考虑不同的颜色表示，面向哪*/
 .booklist .current{

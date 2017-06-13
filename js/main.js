@@ -24,7 +24,7 @@
         //设定好url发给服务器
 		str="http://211.87.177.4/opac/openlink.php?strSearchType="+type
 		+"&match_flag=forward&historyCount=1&strText="+name
-		+"&doctype=ALL&lang_code=ALL&match_flag=forward&displaypg=40&showmode=list&orderby=DESC&sort=CATA_DATE&onlylendable=no&with_ebook=off";
+		+"&doctype=ALL&lang_code=ALL&match_flag=forward&displaypg=20&showmode=list&orderby=DESC&sort=CATA_DATE&onlylendable=no&with_ebook=off";
 
 		return str;
 	}
@@ -58,8 +58,7 @@
 
 $(function () {
     
-        //下拉选框是否改变了
-
+        //下拉选框是否改变了，改变placeholder
 
         //当点击查询按钮时
 		$("#findBtn").click(function(){
