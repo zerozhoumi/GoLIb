@@ -16,6 +16,7 @@
 /*总的设置*/
 	body {
     	background-color: #fff;
+		padding-top: 50px;
 	}
 	p {
 	    text-indent: 2em;
@@ -39,15 +40,24 @@
 .input-box{
 	padding-top: 5%; 
 }
+.main-center{
+	width:90%;
+	margin: 0 auto;
+}
 .center{
 	position: relative;
-	margin-top: 5%;
+	margin: 3% auto;
+	display: block;
 }
  /*.error{*/
 	/*color: #f00;*/
 	/*display: none;*/
 /*}*/
  /*复制书籍编号引导页*/
+.book-show li{
+	border: 1px #ccc solid;
+	display: block;
+}
 .book-show a{
 	float: right;
 }
@@ -107,17 +117,20 @@
 /*display:none;*/
 /*}*/
 
-/*被选中的书架，考虑不同的颜色表示，面向哪*/
+/*被选中的书架，考虑不同的颜色表示，面向哪
+这个功能不做了*/
 .booklist .current{
 	background: #f00;
 	height: 20px;
 }
-.booklist .current-door{
 
-}
-.booklist .current-wall{
+		/*reback*/
 
+#rebackPage option{
+	size:18px;
+	text-align: center;
 }
-		
+
+/*mybook*/
 		
 	

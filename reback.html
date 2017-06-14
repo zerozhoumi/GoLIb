@@ -1,38 +1,63 @@
 
 <!DOCTYPE html>
 <html>
-<meta charset="UTF-8">
+<html lang="zh-CN">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta charset="utf-8">
 <head>
 	<title>reback</title>
 
 </head>
+
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!--用bootstrap进行美化-->
 
 <body>
 <!-- nav -->
-<ul class="nav nav-pills">
-    <li role="presentation" class="active"><a href="#">Home</a></li>
-    <li role="presentation"><a href="#">Profile</a></li>
-    <li role="presentation"><a href="#">Messages</a></li>
-</ul>
-<div class="nav">
-    <ul>
-        <li><a href="index.html">借书</a></li>
-        <li><a href="reback.html">反馈</a></li>
-        <li><a href="mybook.html">我的书单</a></li>
 
-    </ul>
-</div>
 
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <ul class="nav nav-pills">
+        <a class="navbar-brand" href="#">
+                <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                </a>
+            <li role="presentation"><a href="index.html">借书
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </a></li>
+            <li role="presentation" class="active"><a href="reback.html">反馈</a></li>
+            <li role="presentation"><a href="mybook.html">
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+            我的书单</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<div id="header">
+        <div class="log">
+        <h1>
+            <strong>永远相信</strong>
+            <br>
+            <strong>美好的事情</strong>
+            <br>
+            <strong>即将发生</strong>
+            <h5>
+            <strong>Always believe that something wonderful</strong>
+                <br>
+                <strong>is about to happen</strong>
+            </h5>
+        </h1>
+
+        </div>
+        </div>
+<div class="main-center" id="rebackPage">
 
 
 <!-- 反馈类型选择 -->
-<select>
+<select class="form-control center">
     <option>软件建议</option>
     <option>书架显示错误</option>
 
@@ -41,8 +66,12 @@
 
 
 <!-- textarea -->
-<textarea placeholder="感谢你对该网页提出建议"></textarea>
+<textarea class="form-control" rows="10"></textarea>
+
 <!-- submit -->
-<button>submit</button>
+<button class="btn btn-primary btn-lg btn-block center"  id="submitBtn">提交</button>
+
+
+</div>
 </body>
 </html>

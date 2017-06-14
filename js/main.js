@@ -37,8 +37,7 @@
         //判断是否为空
         var str=$("#inputBookCode").val().trim();
         if (str.length!==0) {
-            //记得变大写为小写
-            return str.toLowerCase();
+        	return str;
         }else{
             return false;
         }
@@ -52,7 +51,6 @@
 		 var toFindLi= $(floorName).find("li");
              //注意数组的起始以及要显示的数字；
 		 	toFindLi.eq(numArr[1]).html(numArr[1]+1).addClass("current");
-
 	}
 
 
