@@ -11,12 +11,12 @@
 
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/reback.css">
 <!--用bootstrap进行美化-->
 
 <body>
 <!-- nav -->
-
+<div id="rebackPage">
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -53,25 +53,37 @@
 
         </div>
         </div>
-<div class="main-center" id="rebackPage">
 
-
+<div class="main-center" >
 <!-- 反馈类型选择 -->
 <select class="form-control center">
     <option>软件建议</option>
     <option>书架显示错误</option>
+    <!--<option>进入开发者页面</option>-->
 
 </select>
 
-
-
 <!-- textarea -->
-<textarea class="form-control" rows="10"></textarea>
-
+<textarea class="form-control" rows="10" id="reText" placeholder="请输入你的建议。"></textarea>
 <!-- submit -->
-<button class="btn btn-primary btn-lg btn-block center"  id="submitBtn">提交</button>
-
-
+<button class="btn btn-primary btn-lg btn-block center"  id="rebackSubmitBtn">提交</button>
+<p></p>
+</div>
 </div>
 </body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<!--<script>-->
+<!--$(function () {-->
+    <!--$("#rebackSubmitBtn").click(function () {-->
+        <!--var myText=$("#reText").val();-->
+        <!--if (myText.length!==0){-->
+<!--//           发送消息；-->
+            <!--$.post("main1.php",{"type":"reback","msg":myText},function (date) {-->
+                <!--$("p").html(data);-->
+            <!--})-->
+        <!--}-->
+
+    <!--})-->
+<!--})-->
+<!--</script>-->
 </html>

@@ -5,27 +5,18 @@
 <head>
 	<title>图书馆查书</title>
 </head>
-<!--提前引入，防止错误-->
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-
-
-<!--暂时写下开头这-->
-<script src=js/main.js></script>
-<script src="js/bookbox.js"></script>
-
-
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<ul class="nav nav-pills">
-			<a class="navbar-brand" href="#">
+			<li class="navbar-brand" >
 				<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
 
-			</a>
+			</li>
 			<li role="presentation" class="active"><a href="index.html">借书
 			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 			</a></li>
@@ -37,214 +28,57 @@
 	</div>
 </nav>
 
-	<!-- 以下是查询页 -->
-	<div class="section" id="findBookPage">
+<div class="jumbotron">
+	<h1>尊敬的读者，你好</h1>
+	<p>希望你可以阅读后将书放回原处，减少工作人员的作业量，你也可以加入"图书馆志愿者协会"。</p>
+	<p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a></p>
+</div>
 
-		
+<div id="warp" >
+	<!-- 以下是正常的查询页 -->
+				<div class="row">
+					<div class=" col-xs-4 col-md-2">
+								<select class="form-control btn-primary " id="selectType" title="book-type">
+									<option value="1">书名</option>
+									<option value="2">作者</option>
+									<option value="3">ISBN</option>
+								</select>
+					</div>
+					<div class=" col-xs-8 col-md-8">
+							<input id="inputBookName" type="text" class="form-control"  placeholder="输入书籍信息">
+					</div>
+				</div>
 
-		<div class="container-fluid input-box" >
-			<div class="row">
-		<div class="col-xs-4 col-md-2">
-			<select class="form-control" id="selectType">
-			  <option value="1">书名</option>
-			  <option value="2">作者</option>
-			  <option value="3">ISBN</option>
-			</select>
-		</div>
 
-		<div class="col-xs-8 col-md-4">
-		<input  class="form-control" id="inputBookName" type="text" placeholder="输入书籍信息" >
-		</div>
-			</div>
-		</div>
+		<button class="btn   btn-primary" id="findBtn">
+			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			查找</button>
 
-		<button class="btn btn-primary btn btn-block center"  id="findBtn">
-		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-		查找</button>
 
-		<h2 class="error">请输入书籍信息</h2>
+	<h2 class="error">请输入书籍信息</h2>
 
-		</div>
+	<h4 class="loading text-center">加载中...</h4>
 
 <!--书籍样式列表-->
-	<!--有一个img做为指示信息-->
 	<div class="book-show">
 		<ul>
-			<li>
-				<h3><span>中文图书</span>
-					<a href="item.php?marc_no=0000374217">
-						<b>2.<em style="color:#F00;">编码</em>
-							:隐匿在计算机软硬件背后的语言:the hidden language of computer hardware and software</b>
-					</a>     TP311/96  </h3>
-
-				<p>
-		<span>馆藏复本：4
-		<br>
-	     可借复本：2</span>
-					(美) Charles Petzold著
-					<br>
-					电子工业出版社&nbsp;2012
-					<br>
-				</p>
-			</li>
-			<li>
-				<h3><span>中文图书</span>
-					<a href="item.php?marc_no=0000374217">
-						<b>2.<em style="color:#F00;">编码</em>
-							:隐匿在计算机软硬件背后的语言:the hidden language of computer hardware and software</b>
-					</a>     TP311/96  </h3>
-
-				<p>
-		<span>馆藏复本：4
-		<br>
-	     可借复本：2</span>
-					(美) Charles Petzold著
-					<br>
-					电子工业出版社&nbsp;2012
-					<br>
-				</p>
-			</li>
-			<li>
-				<h3><span>中文图书</span>
-					<a href="item.php?marc_no=0000374217">
-						<b>2.<em style="color:#F00;">编码</em>
-							:隐匿在计算机软硬件背后的语言:the hidden language of computer hardware and software</b>
-					</a>     TP311/96  </h3>
-
-				<p>
-		<span>馆藏复本：4
-		<br>
-	     可借复本：2</span>
-					(美) Charles Petzold著
-					<br>
-					电子工业出版社&nbsp;2012
-					<br>
-				</p>
-			</li>
-			<li>
-				<h3><span>中文图书</span>
-					<a href="item.php?marc_no=0000374217">
-						<b>2.<em style="color:#F00;">编码</em>
-							:隐匿在计算机软硬件背后的语言:the hidden language of computer hardware and software</b>
-					</a>     TP311/96  </h3>
-
-				<p>
-		<span>馆藏复本：4
-		<br>
-	     可借复本：2</span>
-					(美) Charles Petzold著
-					<br>
-					电子工业出版社&nbsp;2012
-					<br>
-				</p>
-			</li>
-			<li>
-				<h3><span>中文图书</span>
-					<a href="item.php?marc_no=0000374217">
-						<b>2.<em style="color:#F00;">编码</em>
-							:隐匿在计算机软硬件背后的语言:the hidden language of computer hardware and software</b>
-					</a>     TP311/96  </h3>
-
-				<p>
-		<span>馆藏复本：4
-		<br>
-	     可借复本：2</span>
-					(美) Charles Petzold著
-					<br>
-					电子工业出版社&nbsp;2012
-					<br>
-				</p>
-			</li>
-			<li>
-				<h3><span>中文图书</span>
-					<a href="item.php?marc_no=0000374217">
-						<b>2.<em style="color:#F00;">编码</em>
-							:隐匿在计算机软硬件背后的语言:the hidden language of computer hardware and software</b>
-					</a>     TP311/96  </h3>
-
-				<p>
-		<span>馆藏复本：4
-		<br>
-	     可借复本：2</span>
-					(美) Charles Petzold著
-					<br>
-					电子工业出版社&nbsp;2012
-					<br>
-				</p>
-			</li>
-			<li>
-				<h3><span>中文图书</span>
-					<a href="item.php?marc_no=0000374217">
-						<b>2.<em style="color:#F00;">编码</em>
-							:隐匿在计算机软硬件背后的语言:the hidden language of computer hardware and software</b>
-					</a>     TP311/96  </h3>
-
-				<p>
-		<span>馆藏复本：4
-		<br>
-	     可借复本：2</span>
-					(美) Charles Petzold著
-					<br>
-					电子工业出版社&nbsp;2012
-					<br>
-				</p>
-			</li>
-			<li>
-				<h3><span>中文图书</span>
-					<a href="item.php?marc_no=0000374217">
-						<b>2.<em style="color:#F00;">编码</em>
-							:隐匿在计算机软硬件背后的语言:the hidden language of computer hardware and software</b>
-					</a>     TP311/96  </h3>
-
-				<p>
-		<span>馆藏复本：4
-		<br>
-	     可借复本：2</span>
-					(美) Charles Petzold著
-					<br>
-					电子工业出版社&nbsp;2012
-					<br>
-				</p>
-			</li>
+			<!--测试用文字-->
+			<!--<li><h3>1.Java程序设计实验指导.双语版</h3><h4>i312/1422</h4><span>馆藏复本：3 <br>-->
+	                                          <!--可借复本：0</span> 主编高永平 <br>-->
+				<!--电子工业出版社&nbsp;2017 <br>(0)</li>-->
+			<!--<li><h3>1.Java程序设计实验指导.双语版</h3><h4>i312/1422</h4><span>馆藏复本：3 <br>-->
+	                                          <!--可借复本：0</span> 主编高永平 <br>-->
+				<!--电子工业出版社&nbsp;2017 <br>(0)</li>-->
 			<!--可以写个odd灰色-->
 		</ul>
 
 	</div>
 
-
-	<!--操作引导-->
-	<div  id="infoPage">
-
-
-
-		<!--跳转url-->
-		<p><a href="#">点击标签</a>，并复制如图书籍编号</p>
-
-	<!--输入书籍编号-->
-	<div class="container-fluid">
-		<div class="row">
-		<div class="col-xs-8" >
-			<input  class="form-control" id="inputBookCode" type="text" placeholder="输入书籍编码，如：TP311/96" >
-		</div>
-
-			<div class="col-xs-2 col-md-4">
-				<button class="btn btn-default" id="findCodeBtn">查找</button>
-			</div>
-
-		</div>
-	</div>
-			<h2 class="error">请输入书籍信息</h2>
-
-		</div>
-
-
-	<!-- 书架信息 -->
 	<!-- 下面是第一层 -->
 		<div  id="first-floor">
-			<div class="booklist" >
-	<div class="container-fluid" >
+	<div class="container-fluid booklist" >
 	<div class="row">
-	<div class=" col-xs-3 col-md-1 col-xs-push-9 col-md-push-3 right">
+	<div class=" col-xs-3  col-xs-push-9 right">
 		<ul>
 		<li>1</li>
 		<li></li>
@@ -273,7 +107,7 @@
 		<li>25</li>
 		</ul>
 	</div>
-	<div class=" col-xs-3 col-md-1 col-xs-push-3 col-md-push-1 mid-right">
+	<div class=" col-xs-3  col-xs-push-3  mid-right">
 		<ul>
 		<li></li>
 		<li></li>
@@ -312,7 +146,7 @@
 		<li>60</li>
 		</ul>
 	</div>
-	<div class=" col-xs-3 col-md-1 col-xs-pull-3 col-md-pull-1 mid-left">
+	<div class=" col-xs-3  col-xs-pull-3  mid-left">
 		<ul>
 		<li></li>
 		<li></li>
@@ -351,7 +185,7 @@
 		
 		</ul>
 	</div>
-	<div class=" col-xs-3 col-md-1 col-xs-pull-9 col-md-pull-3 left">
+	<div class=" col-xs-3  col-xs-pull-9  left">
 		<ul>
 		<li>95</li>
 		<li></li>
@@ -368,21 +202,18 @@
 		<li></li>
 		<li></li>
 		<li>110</li>
-		<div class="l-wall">消防通道</div>
+		<p class="l-wall">消防通道</p>
 		</ul>
 	</div>
 			</div>
-		</div>
 				<h3 class="door-in text-center">一层入口</h3>
 			</div>
 		</div>
 	<!-- 下面是第二层 -->
 		<div  id="second-floor">
-			<div class="booklist" >
-	<div class="container-fluid" >
+	<div class="container-fluid  booklist" >
 	<div class="row">
-
-	<div class=" col-xs-3 col-md-1 col-xs-push-9 col-md-push-3 right">
+	<div class=" col-xs-3  col-xs-push-9  right">
 		<ul>
 		<li>1</li>
 		<li></li>
@@ -423,7 +254,7 @@
 		<li></li>
 		</ul>
 	</div>
-	<div class=" col-xs-3 col-md-1 col-xs-push-3 col-md-push-1 mid-right">
+	<div class=" col-xs-3  col-xs-push-3  mid-right">
 		<ul>
 		<li></li>
 		<li></li>
@@ -472,7 +303,7 @@
 		<li></li>
 		</ul>
 	</div>
-	<div class=" col-xs-3 col-md-1 col-xs-pull-3 col-md-pull-1 mid-left">
+	<div class=" col-xs-3  col-xs-pull-3  mid-left">
 		<ul>
 		<li></li>
 		<li></li>
@@ -522,7 +353,7 @@
 		
 		</ul>
 	</div>
-	<div class=" col-xs-3 col-md-1 col-xs-pull-9 col-md-pull-3  left">
+	<div class=" col-xs-3  col-xs-pull-9   left">
 		<ul>
 		<li></li>
 		<li></li>
@@ -550,15 +381,13 @@
 	</div>
 	</div>
 				<h3 class="door-in text-center">二层入口</h3>
-			</div>
 		</div>
 	<!-- 下面是第三层 -->
 		<div  id="three-floor">
-			<div class="booklist" >
-	<div class="container-fluid" >
+	<div class="container-fluid booklist" >
 	<div class="row">
 
-	<div class=" col-xs-3 col-md-1 col-xs-push-9 col-md-push-3 right">
+	<div class=" col-xs-3  col-xs-push-9  right">
 		<ul>
 		<li>1</li>
 		<li></li>
@@ -598,7 +427,7 @@
 		<li></li>
 		</ul>
 	</div>
-	<div class=" col-xs-3 col-md-1 col-xs-push-3 col-md-push-1 mid-right">
+	<div class=" col-xs-3  col-xs-push-3  mid-right">
 		<ul>
 		<li></li>
 		<li></li>
@@ -648,7 +477,7 @@
 		
 		</ul>
 	</div>
-	<div class=" col-xs-3 col-md-1 col-xs-pull-3 col-md-pull-1 mid-left">
+	<div class=" col-xs-3  col-xs-pull-3  mid-left">
 		<ul>
 		<li></li>
 		<li></li>
@@ -699,7 +528,7 @@
 		
 		</ul>
 	</div>
-	<div class=" col-xs-3 col-md-1 col-xs-pull-9 col-md-pull-3 left">
+	<div class=" col-xs-3  col-xs-pull-9  left">
 		<ul>
 
 		<li>125</li>
@@ -738,9 +567,14 @@
 	</div>
 	</div>
 				<h3 class="door-in text-center">三层入口</h3>
-			</div>
+
 	</div>
 
 </div>
+
 </body>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src=js/main.js></script>
+
 </html>
