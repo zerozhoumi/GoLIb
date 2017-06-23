@@ -1,89 +1,170 @@
-
 <!DOCTYPE html>
-<html>
 <html lang="zh-CN">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta charset="utf-8">
 <head>
-	<title>reback</title>
-
+	<title>吐槽</title>
 </head>
-
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/reback.css">
-<!--用bootstrap进行美化-->
-
 <body>
-<!-- nav -->
-<div id="rebackPage">
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <ul class="nav nav-pills">
-        <a class="navbar-brand" href="#">
-                <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
-                </a>
-            <li role="presentation"><a href="index.html">借书
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </a></li>
-            <li role="presentation" class="active"><a href="reback.html">反馈</a></li>
-            <li role="presentation"><a href="mybook.html">
-            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
-            我的书单</a></li>
-        </ul>
-    </div>
-</nav>
 
 
-<div id="header">
-        <div class="log">
-        <h1>
-            <strong>永远相信</strong>
-            <br>
-            <strong>美好的事情</strong>
-            <br>
-            <strong>即将发生</strong>
-            <h5>
-            <strong>Always believe that something wonderful</strong>
-                <br>
-                <strong>is about to happen</strong>
-            </h5>
-        </h1>
+    <!-- nav -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li class="navbar-brand" >
+                    <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                </li>
 
+                <li role="presentation"><a href="index.html">借书
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </a></li>
+
+                <li role="presentation" class="active"><a href="reback.html">
+                    <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+                    吐槽</a></li>
+
+                <li role="presentation"><a href="mybook.php">
+                <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                我的书单</a></li>
+            </ul>
         </div>
+    </nav>
+
+    <div id="rebackPage">
+
+        <div id="header">
+            <div class="log">
+            <h1>
+                <strong>永远相信</strong>
+                <br>
+                <strong>美好的事情</strong>
+                <br>
+                <strong>即将发生</strong>
+                <h5>
+                <strong>Always believe that something wonderful</strong>
+                    <br>
+                    <strong>is about to happen</strong>
+                </h5>
+            </h1>
+
+            </div>
         </div>
 
 <div class="main-center" >
-<!-- 反馈类型选择 -->
-<select class="form-control center">
-    <option>软件建议</option>
-    <option>书架显示错误</option>
-    <!--<option>进入开发者页面</option>-->
-
-</select>
 
 <!-- textarea -->
-<textarea class="form-control" rows="10" id="reText" placeholder="请输入你的建议。"></textarea>
-<!-- submit -->
-<button class="btn btn-primary btn-lg btn-block center"  id="rebackSubmitBtn">提交</button>
-<p></p>
-</div>
-</div>
-</body>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-<!--<script>-->
-<!--$(function () {-->
-    <!--$("#rebackSubmitBtn").click(function () {-->
-        <!--var myText=$("#reText").val();-->
-        <!--if (myText.length!==0){-->
-<!--//           发送消息；-->
-            <!--$.post("main1.php",{"type":"reback","msg":myText},function (date) {-->
-                <!--$("p").html(data);-->
-            <!--})-->
-        <!--}-->
+    <div class="dm">
+        <div class="dm_screen">
+            <div class="dm_mask"></div>
+            <div class="dm_show">
+                <!-- <div>text message</div>  -->
+            </div>
+        </div>
+        <div class="send">
+            <div class="s_fiter">
+                <div class="s_con">
+                    <p>
+                        <input placeholder="说点什么?" class="s_txt" type="text" />
+                    </p>
+                    <p>
+                        <input type="button" value="发 射" class="s_sub" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!--})-->
-<!--})-->
-<!--</script>-->
+        </div>
+        </div>
+
+<!--footer-->
+<footer class="footer text-center">
+    <address>
+        developed by<a href="https://github.com/zerozhoumi/GoLIb">zhoumi<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+    </address>
+</footer>
+</body>
+<script src="https://cdn.wilddog.com/js/client/current/wilddog.js"></script>
+<script src="https://cdn.wilddog.com/js/vendor/jquery-1.11.2.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+        var ref = new Wilddog("https://golib-reback.wilddogio.com/messages");
+        var arr = [];
+        //把数据提交到野狗云
+        $(".s_sub").click(function() {
+            var text = $(".s_txt").val();
+            ref.child('message').push(text);
+            $(".s_txt").val('');
+        });
+        //响应按键点击事件
+        $(".s_txt").keypress(function(event) {
+            if (event.keyCode == "13") {
+                $(".s_sub").trigger('click');
+            }
+        });
+        //响应按键清除事件
+
+        //监听云端数据变更，云端数据变化，弹幕框里数据也跟着变化。
+        ref.child('message').on('child_added', function(snapshot) {
+            var text = snapshot.val();
+            arr.push(text);
+            var textObj = $("<div class=\"dm_message\"></div>");
+            textObj.text(text);
+            $(".dm_show").append(textObj);
+            moveObj(textObj);
+        });
+
+
+        //按照时间规则显示弹幕内容。
+        var topMin = $('.dm_mask').offset().top;
+        var topMax = topMin + $('.dm_mask').height();
+        var _top = topMin;
+
+        var moveObj = function(obj) {
+            var _left = $('.dm_mask').width() - obj.width();
+            _top = _top + 50;
+            if (_top > (topMax - 50)) {
+                _top = topMin;
+            }
+            obj.css({
+                left: _left,
+                top: _top,
+                color: getRandomColor()
+            });
+            var time = 20000 + 10000 * Math.random();
+            obj.animate({
+                left: "-" + _left + "px"
+            }, time, function() {
+                obj.remove();
+            });
+        }
+
+        var getRandomColor = function() {
+            return '#' + (function(h) {
+                    return new Array(7 - h.length).join("0") + h
+                })((Math.random() * 0x1000000 << 0).toString(16))
+        }
+
+        var getAndRun = function() {
+            if (arr.length > 0) {
+                var n = Math.floor(Math.random() * arr.length + 1) - 1;
+                var textObj = $("<div>" + arr[n] + "</div>");
+                $(".dm_show").append(textObj);
+                moveObj(textObj);
+            }
+
+            setTimeout(getAndRun, 3000);
+        }
+
+        jQuery.fx.interval = 50;
+        getAndRun();
+    });
+</script>
+
+
 </html>

@@ -1,6 +1,3 @@
-    //在写一个函数，用于改变placeholder
-    // function changePlaceHolder() {
-    // }
     function getInputBookName(){
 		//判断是否为空
 		var str=$("#inputBookName").val().trim();
@@ -8,18 +5,20 @@
 			return str;
 		}else{
             $(".error").css("display","block");
-            removeError();
+            //改变输入后隐藏信息
+            $("#inputBookName").on("click",function () {
+                $(".error").css("display","none");
+            });
             return false;
 		}
 	}
-	function getTypeName(){
+
+    function getTypeName(){
         //strSearchType=title，author,isbn
 		var num =$("#selectType").val();
 		var type=["title","author","isbn"];
-		var str=type[num-1];
-		return str;
+		return type[num-1];
 	}
-
 	function postUrl(type,name) {
         //就在这个函数里让爬虫返回数据
         $(document).ajaxStart(function(){
@@ -28,16 +27,32 @@
             $(".loading").hide();
         });
         $.post('main.php',{'bookType':type,'bookName':name},function (data) {
-            $(".book-show").html(data);
+            $(".book-show").css("display","block").html(data);
         });
     }
     function clickLI() {
-        $(".book-show").delegate("li","click",function () {
+        $(".book-show").off("click").on("click","li",function () {
             $(this).css("background-color","#eee");
-            $(this).siblings().slidUp(500);
-          var num=getAsciiFloorBook($(this).children("h4").text());
-          showBook(num);
-        })
+                //有bug
+            var bookCode=$(this).children("h4").text();
+            if (bookCode.length!==0){
+                var num=getAsciiFloorBook(bookCode);
+                showBook(num);
+                sayBook(num);
+                $(".need-book").append("<li>"+$(this).html()+
+                    "<p>" +"该书籍在第"+(num[0]+1)+"层"+(num[1]+1)+"书架"+"<p>"
+                    +"</li>");
+                $(this).siblings().hide("slow");
+                $("#inputBookName").click(function () {
+                    $(".book-show").css("display","none");
+                    $(".book-show ").empty();
+                });
+            }else{
+                alert("这本书没有馆藏");
+            }
+
+        });
+
     }
     function getAsciiFloorBook(upstr) {
         //变大写为小写
@@ -169,57 +184,54 @@
         });
         var mystr=finalArr[0];
         var num=null;
-        console.log(mystr);
         $.each(floorArr,function(index,value){
             if (value===mystr) {
                 num=index;
             }
         });
-        return [floor+1,num];
+        return [floor,num];
     }
-
     //特殊调用，当出现没库存，去单本库时，使用，后面考虑；
-    function getFloor4Book() {
-        var floor4=[];
-    }
-
 	function showBook(numArr){
 		//显示该书籍
 		var floorList=["#first-floor","#second-floor","#three-floor"];
-		var floorName=floorList[numArr[0]-1];
+		var floorName=floorList[numArr[0]];
 		 $(floorName).css("display","block");
 		 var toFindLi= $(floorName).find("li");
              //注意数组的起始以及要显示的数字；
 		 	toFindLi.eq(numArr[1]).html(numArr[1]+1).addClass("current");
-        $("#inputBookName").onfocus(function () {
-            toFindLi.eq(numArr[1]).html(numArr[1]+1).removeClass("current");
-        });
 	}
-	function removeError() {
-        $("#inputBookName").onfocus(function () {
-            $(".error").css("display","none");
-        $(".book-show").css("display","none");
-        });
+    function sayBook(numArr) {
+	    console.log("该书籍在第"+(numArr[0]+1)+"层"+(numArr[1]+1)+"书架");
+
     }
 
-
 	$(function () {
-        //下拉选框是否改变了，改变placeholder
         //当点击查询按钮时
+        $("#findCodeBtn").click(function () {
+            var str=$("#codeInput").val().trim();
+            var num=getAsciiFloorBook(str);
+            showBook(num);
+        });
+
 		$("#findBtn").click(function(){
 			var bookName=getInputBookName();
 				if (bookName) {
                     var type=getTypeName();
-                    // console.log(type,bookName);
 					postUrl(type,bookName);
                     clickLI();
 				}
+            $("#errorBtn").one("click",function () {
+                var myUrl=setUrl(type,bookName);
+                window.open(myUrl);
+            })
         });
-	//	当我触发input的输入框时，要把以前显示的隐藏掉
-
-
-
 
 	});
 
 
+    function setUrl(type,name) {
+        var str="http://211.87.177.4/opac/openlink.php?strSearchType="+type+
+            "&match_flag=forward&historyCount=1&strText="+name+"&doctype=ALL&lang_code=ALL&match_flag=forward&displaypg=20&showmode=list&orderby=DESC&sort=CATA_DATE&onlylendable=no&with_ebook=off";
+        return str;
+	}

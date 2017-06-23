@@ -47,6 +47,9 @@ h1, h2, h3, p, div, input, button, body, ul, li, img, a {
 
 
 /*书籍选择片段*/
+	.book-show{
+		display: none;
+	}
 	.book-show li{
 		border: 1px #ccc solid;
 	}
@@ -65,7 +68,42 @@ h1, h2, h3, p, div, input, button, body, ul, li, img, a {
 		float: right;
 		color: #999;
 	}
-
+	.ajaxError{
+		color:#777;
+		margin-top: 30%;
+		border-top: 1px #888 dashed;
+	}
+	.ajaxError h5{
+		padding: 5px 10px;
+		border: 1px #f00 solid;
+		display: inline;
+	}
+	.ajaxError .input-group{
+		width: 60%;
+		margin: 3% auto;
+	}
+/*用户浏览过的书籍选择片段*/
+	.need-book li{
+		border: 1px #337ab7 solid;
+	}
+	/*书名*/
+	.need-book h3{
+		float: left;
+		color: #337AB7;
+	}
+	/*书籍的编号*/
+	.need-book h4{
+		color: #999;
+	}
+	/*可借副本*/
+	.need-book span{
+		size: 12px;
+		float: right;
+		color: #999;
+	}
+	.need-book p{
+		color: #f00;
+	}
 
 /*书架页*/
 	.booklist li{
@@ -104,8 +142,6 @@ h1, h2, h3, p, div, input, button, body, ul, li, img, a {
 		color: #555;
 		display: none;
 	}
-
-
 	 .current{
 		text-align: center;
 		background: #f00;
@@ -116,17 +152,17 @@ h1, h2, h3, p, div, input, button, body, ul, li, img, a {
 /*用来先隐藏掉书架布局*/
 
 	#first-floor{
-	display: none;
+		display: none;
 		padding-top: 5%;
 		padding-bottom:30%;
 	}
 	#second-floor{
-	display: none;
+		display: none;
 		padding-top: 5%;
 		padding-bottom:30%;
 	}
 	#three-floor{
-	display:none;
+		display:none;
 		padding-top: 5%;
 		padding-bottom:30%;
 	}

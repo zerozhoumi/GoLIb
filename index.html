@@ -3,36 +3,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta charset="utf-8">
 <head>
-	<title>图书馆查书</title>
+	<title>石大图书馆查书</title>
 </head>
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+
 <body>
+	<!--nav-->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<ul class="nav nav-pills">
+				<li class="navbar-brand" >
+					<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+				</li>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container">
-		<ul class="nav nav-pills">
-			<li class="navbar-brand" >
-				<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+				<li role="presentation" class="active"><a href="index.html">借书
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+				</a></li>
 
-			</li>
-			<li role="presentation" class="active"><a href="index.html">借书
-			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-			</a></li>
-			<li role="presentation"><a href="reback.html">反馈</a></li>
-			<li role="presentation"><a href="mybook.html">
-            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
-            我的书单</a></li>
-		</ul>
+				<li role="presentation" ><a href="reback.html">
+					<span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+					吐槽</a></li>
+
+				<li role="presentation"><a href="mybook.php">
+					<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+					我的书单</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="jumbotron">
+		<h1>尊敬的读者，你好</h1>
+		<p>希望你可以阅读后将书放回原处，减少工作人员的作业量，你也可以加入"图书馆志愿者协会"。</p>
+		<p><a class="btn btn-primary btn-lg" href="mybook.php" role="button">了解更多</a></p>
 	</div>
-</nav>
-
-<div class="jumbotron">
-	<h1>尊敬的读者，你好</h1>
-	<p>希望你可以阅读后将书放回原处，减少工作人员的作业量，你也可以加入"图书馆志愿者协会"。</p>
-	<p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a></p>
-</div>
 
 <div id="warp" >
 	<!-- 以下是正常的查询页 -->
@@ -45,7 +50,7 @@
 								</select>
 					</div>
 					<div class=" col-xs-8 col-md-8">
-							<input id="inputBookName" type="text" class="form-control"  placeholder="输入书籍信息">
+							<input id="inputBookName" type="text" class="form-control"  placeholder="输入书籍信息,就可以显示位置哦！">
 					</div>
 				</div>
 
@@ -57,13 +62,18 @@
 
 	<h2 class="error">请输入书籍信息</h2>
 
-	<h4 class="loading text-center">加载中...</h4>
+	<h3 class="loading text-center">加载中...
+	<br>
+		<small>默认只显示30本书籍，如未找到书籍请优化关键词</small>
+	</h3>
+
 
 <!--书籍样式列表-->
-	<div class="book-show">
-		<ul>
+
+		<ul class="book-show">
+
 			<!--测试用文字-->
-			<!--<li><h3>1.Java程序设计实验指导.双语版</h3><h4>i312/1422</h4><span>馆藏复本：3 <br>-->
+			<!--<li><h3>1.Java程序设计实验指导.双语版</h3><h4>TP312/1422</h4><span>馆藏复本：3 <br>-->
 	                                          <!--可借复本：0</span> 主编高永平 <br>-->
 				<!--电子工业出版社&nbsp;2017 <br>(0)</li>-->
 			<!--<li><h3>1.Java程序设计实验指导.双语版</h3><h4>i312/1422</h4><span>馆藏复本：3 <br>-->
@@ -72,7 +82,7 @@
 			<!--可以写个odd灰色-->
 		</ul>
 
-	</div>
+
 
 	<!-- 下面是第一层 -->
 		<div  id="first-floor">
@@ -570,11 +580,40 @@
 
 	</div>
 
-</div>
+	<!--浏览过的书籍-->
+	<div >
+		<h3 class="text-center">我浏览过的书籍</h3>
+		<ul class="need-book"></ul>
+	</div>
+
+	<!--没法链接服务器-->
+	<div class="ajaxError text-center">
+		<h4>==如果无法链接==</h4>
+		<h4 >请复制如下书籍码，仍然可以找书</h4>
+
+		<h5>TP312/1422</h5>
+		<button class="btn btn-default text-center" id="errorBtn" >点我,跳转到学校图书馆页</button>
+		<div class="input-group text-center">
+				<input type="text" id="codeInput" class="form-control" placeholder="粘贴刚刚复制的书籍码,仍然可以找到书的位置" >
+				<span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="findCodeBtn" >Go!</button>
+      </span>
+			</div><!-- /input-group -->
+
+	</div>
+
+
+
+</div><!-- warp-->
+
+<!--footer-->
+<footer class="footer text-center">
+	<address>
+		developed by<a href="https://github.com/zerozhoumi/GoLIb">zhoumi<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+	</address>
+</footer>
 
 </body>
-
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src=js/main.js></script>
-
 </html>
