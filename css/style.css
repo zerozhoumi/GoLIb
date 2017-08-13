@@ -48,7 +48,7 @@ h1, h2, h3, p, div, input, button, body, ul, li, img, a {
 
 /*书籍选择片段*/
 	.book-show{
-		display: none;
+		/*display: none;*/
 	}
 	.book-show li{
 		border: 1px #ccc solid;
