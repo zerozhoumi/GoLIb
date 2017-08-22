@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!--nav-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li class="navbar-brand"><i class="fa fa-book fa-2x" aria-hidden="true"></i></li>
+                <li role="presentation" class="active"><a href="index.html">找书<i class="fa fa-search fa-lg" aria-hidden="true"></i></a></li>
+                <li role="presentation" ><a href="reback.html">吐槽<i class="fa fa-bug fa-lg" aria-hidden="true"></i></a></li>
+                <li role="presentation"><a href="mybook.php">我的书单<i class="fa fa-tags fa-lg" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+<!--jumbotorn-->
+    <div class="jumbotron">
+        <h1>尊敬的读者，你好</h1>
+        <p>希望你可以阅读后将书放回原处，减少工作人员的作业量，你也可以加入"图书馆志愿者协会"。</p>
+        <p><a class="btn btn-primary btn-lg" href="http://library.upc.edu.cn/" role="button">了解更多</a></p>
+    </div>
+
+<!--search-->
+    <div id="warp" >
+        <div class="row">
+            <div class=" col-xs-4 col-md-2">
+                <select class="form-control btn-primary " id="selectType" title="book-type">
+                    <option value="1">书名</option>
+                    <option value="2">作者</option>
+                    <option value="3">ISBN</option>
+                </select>
+            </div>
+            <div class=" col-xs-8 col-md-8">
+                <input id="inputBookName" type="text" class="form-control"  placeholder="输入{{msg}},就可以显示位置哦！">
+            </div>
+        </div>
+
+
+    <button class="btn   btn-primary" id="findBtn"><i class="fa fa-search fa-lg" aria-hidden="true"></i>查找</button>
+    </div>
+
+
+    <div class="error1" >
+        {{message}}
+    </div>
+<!--footer-->
+<footer class="footer text-center">
+    <address>
+        developed by<a href="https://github.com/zerozhoumi/GoLIb">zhoumi<i class="fa fa-github" aria-hidden="true"></i></a>
+    </address>
+</footer>
+</body>
+<script src="js/vue.js"></script>
+<script src="testvue.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+<script>
+
+</script>
+</html>
