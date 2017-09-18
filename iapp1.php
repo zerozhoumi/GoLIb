@@ -1,24 +1,21 @@
 <?php
-namespace iapp;
-ini_set("display_errors", "On");
-error_reporting(0);
 
 if (!function_exists('curl_init')) {
-  throw new Exception('YiBan needs the CURL PHP extension.');
+    throw new Exception('YiBan needs the CURL PHP extension.');
 }
 if (!function_exists('json_decode')) {
-  throw new Exception('YiBan needs the JSON PHP extension.');
+    throw new Exception('YiBan needs the JSON PHP extension.');
 }
 if (!function_exists('mcrypt_decrypt')) {
-  throw new Exception('YiBan needs the mcrypt PHP extension.');
+    throw new Exception('YiBan needs the mcrypt PHP extension.');
 }
 
-//ÒÔÏÂÈý¸ö±äÁ¿ÄÚÈÝÐè»»³É±¾Ó¦ÓÃµÄ
-$APPID = "a6e3389082f4dda4";   //ÔÚopen.yiban.cn¹ÜÀíÖÐÐÄµÄAppID
-$APPSECRET = "f2e4aca4c74af3465f39cfb15f91d264"; //ÔÚopen.yiban.cn¹ÜÀíÖÐÐÄµÄAppSecret
-$CALLBACK = "http://f.yiban.cn/iapp133935";  //ÔÚopen.yiban.cn¹ÜÀíÖÐÐÄµÄoauth2.0»Øµ÷µØÖ·
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è»»ï¿½É±ï¿½Ó¦ï¿½Ãµï¿½
+$APPID = "9c9b9251be8dd03c";   //ï¿½ï¿½open.yiban.cnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½AppID
+$APPSECRET = "505c06fd8a106a6680e1a310fedc3470"; //ï¿½ï¿½open.yiban.cnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½AppSecret
+$CALLBACK = "http://f.yiban.cn/iapp128913";  //ï¿½ï¿½open.yiban.cnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½oauth2.0ï¿½Øµï¿½ï¿½ï¿½Ö·
 
-if(isset($_GET["code"])){   //ÓÃ»§ÊÚÈ¨ºóÌø×ª»ØÀ´»á´øÉÏcode²ÎÊý£¬´Ë´¦code·Çaccess_token£¬Ðèµ÷ÓÃ½Ó¿Ú×ª»¯¡£
+if(isset($_GET["code"])){   //ï¿½Ã»ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½codeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë´ï¿½codeï¿½ï¿½access_tokenï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã½Ó¿ï¿½×ªï¿½ï¿½ï¿½ï¿½
     $getTokenApiUrl = "https://oauth.yiban.cn/token/info?code=".$_GET['code']."&client_id={$APPID}&client_secret={$APPSECRET}&redirect_uri={$CALLBACK}";
     $res = sendRequest($getTokenApiUrl);
     if(!$res){
@@ -35,14 +32,18 @@ if(isset($_GET["code"])){   //ÓÃ»§ÊÚÈ¨ºóÌø×ª»ØÀ´»á´øÉÏcode²ÎÊý£¬´Ë´¦code·Çaccess
     }
     $postInfo = rtrim($postInfo);
     $postArr = json_decode($postInfo, true);
-    if(!$postArr['visit_oauth']){  //ËµÃ÷¸ÃÓÃ»§Î´ÊÚÈ¨ÐèÌø×ªÖÁÊÚÈ¨Ò³Ãæ
+    if(!$postArr['visit_oauth']){  //Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Î´ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½È¨Ò³ï¿½ï¿½
         header("Location: https://openapi.yiban.cn/oauth/authorize?client_id={$APPID}&redirect_uri={$CALLBACK}&display=web");
         die;
     }
     $access_token = $postArr['visit_oauth']['access_token'];
 }
+
+//ï¿½Ãµï¿½access tokenï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç»ï¿½È¡ï¿½ï¿½Ç°ï¿½Ã»ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½so easy!
 $userInfoJsonStr = sendRequest("https://openapi.yiban.cn/user/me?access_token={$access_token}");
 $userInfo = json_decode($userInfoJsonStr);
+
+//var_dump($userInfo);
 
 function sendRequest($uri){
     $ch = curl_init();
@@ -60,17 +61,3 @@ function sendRequest($uri){
     $response = curl_exec($ch);
     return $response;
 }
-//var_dump($userInfo);
-//È¡³öÓÐÓÃµÄ
-    $uid=$userInfo->info->yb_userid;
-    $uname=$userInfo->info->yb_usernick;
-    $upic=$userInfo->info->yb_userhead;
-    $arr=array($uid,$uname,$upic);
-
-echo '<html/>
-<script>
-var myinfo = JSON.parse(`'.json_encode($arr).'`);
-
-</script>
-</html>';
-

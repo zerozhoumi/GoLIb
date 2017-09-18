@@ -40,7 +40,7 @@ include 'iapp.php';
 <!-- 登陆 -->
 
 <button>快捷登陆-易班账号</button>
-正在开发中
+<h1>你好<small id="myName"></small></h1>
 <!-- 书单列表 -->
 <!-- 我的书单 -->
 <div class="book-show">
@@ -63,4 +63,7 @@ include 'iapp.php';
 </footer>
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$('#myName').text(myinfo[1]);
+</script>
 </html>
